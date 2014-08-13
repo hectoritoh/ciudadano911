@@ -11,6 +11,11 @@ app_admin_theme_mapa:
     defaults: { _controller: CelmediaAdminThemeBundle:Emergencias:emergencias }
 
 
+remote_get_directorios:
+    path:     /server/get/directorios
+    defaults: { _controller: CelmediaAdminThemeBundle:Servicios:getDirectorios }
+
+
 
 
 
