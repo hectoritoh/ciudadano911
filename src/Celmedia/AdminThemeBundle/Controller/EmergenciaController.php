@@ -58,4 +58,60 @@ class EmergenciaController extends Controller
 	}
 
 
+
+	public function getEmergenciaAction(Request $request)
+	{
+		$em = $this->getDoctrine()->getManager();     
+        
+
+        if ($request->isMethod('POST')) {
+
+            $emergenciaJSON = $request->request->get('emergencia');
+
+
+	        $emergencia = $this->getDoctrine()->getRepository("AppCoreBundle:Emergencia")->findOneBy(
+	        	array(
+	            	"id" => $emergenciaJSON["id"]
+	            )
+	        );
+
+	        $arrEmergencia = array(
+	        	'idEmergencia' => $emergencia->getId(),
+	        	'tipoEmergencia' => $emergencia->getTipoEmergencia(),
+	        	'descripcion' => $emergencia->getDescripcion(),
+	        	'latitud' => $emergencia->getLatitud(),
+	        	'longitud' => $emergencia->getLonguitud(),
+	        	'idUsuario' => $emergencia->getUsuario()->getId(),
+	        	'username' => $emergencia->getUsuario()->getUsername(),
+	        	'fecha' => $emergencia->getCreated()->format('Y-m-d H:i:s')
+	        );
+
+	        return new JsonResponse(array(
+	            'codigo' => 1,
+	            'mensaje' => "Emergencias encontradas",
+	            'emergenciaDetalle' => $arrEmergencia
+	        ), 200); //codigo de error diferente
+
+	    }else{
+        	return new JsonResponse(array(
+	            'codigo' => 0,
+	            'mensaje' => "No se encontraron emergencias"
+	        ), 200); //codigo de error diferente
+        }
+	}
+	
+
+	public function atenderEmergenciaAction($idEmergencia)
+	{
+		$em = $this->getDoctrine()->getManager();
+		$emergencia = $this->getDoctrine()->getRepository("AppCoreBundle:Emergencia")->findOneBy(
+        	array(
+            	"id" => $idEmergencia
+            )
+        );
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'mensaje' => "No se atiende"
+        ), 200); //codigo de error diferente
+	}
 }

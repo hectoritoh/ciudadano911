@@ -28,6 +28,10 @@ App\CoreBundle\Entity\Emergencia:
             type: string
             length: 100
             nullable: true
+        estado:
+            type: string
+            length: 100
+            nullable: true
 
 
         created:

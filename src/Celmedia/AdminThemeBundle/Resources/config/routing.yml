@@ -23,10 +23,17 @@ get_emergencias:
         expose: true
 
 
+get_emergencia:
+    path:      /getEmergencia
+    defaults:  { _controller: CelmediaAdminThemeBundle:Emergencia:getEmergencia }
+    options:
+        expose: true
 
-
-
-
+atender_emergencia:
+    path:      /atenderEmergencia/{idEmergencia}
+    defaults:  { _controller: CelmediaAdminThemeBundle:Emergencia:atenderEmergencia }
+    options:
+        expose: true
 
 
 

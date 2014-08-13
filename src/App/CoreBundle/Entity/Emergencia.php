@@ -220,4 +220,32 @@ class Emergencia
     {
         return $this->usuario;
     }
+    /**
+     * @var string
+     */
+    private $estado;
+
+
+    /**
+     * Set estado
+     *
+     * @param string $estado
+     * @return Emergencia
+     */
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return string 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
 }
