@@ -1,0 +1,78 @@
+Celmedia\PortalBundle\Entity\Campana:
+    type: entity
+    table: campana
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        fechaCumpleanos:
+            type: datetime
+            nullable: true 
+        edadMinima:
+            type: integer
+            nullable: false
+        edadMaxima:
+            type: integer
+            nullable: false
+# 0 todos , 1 hombres , 2 mujeres
+        genero: 
+            type: integer
+            nullable: false
+# 1 creacion , 2 creado , 0 eliminado
+        estado: 
+            type: integer
+            nullable: false
+        objetivo:
+            type: string
+            length: 100
+            fixed: false
+            nullable: true
+        usuario:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+
+        created:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: create
+        updated:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: update
+
+
+
+    manyToMany:
+      ciudades:
+        targetEntity: Ciudad
+        joinTable:
+          name: campana_ciudad
+          joinColumns:
+            campana_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            ciudad_id:
+              referencedColumnName: id
+    oneToOne:
+      mensaje:
+        targetEntity: Mensaje
+        cascade: ["persist"]
+        joinColumn:
+          name: mensaje_id
+          referencedColumnName: id
+
+
+    lifecycleCallbacks: {  }
