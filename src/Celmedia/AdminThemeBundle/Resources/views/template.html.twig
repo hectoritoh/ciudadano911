@@ -13,20 +13,24 @@
       
   
 	{% stylesheets 
-	'bundles/celmediaadmintheme/css/bootstrap.min.css' 
-	'bundles/celmediaadmintheme/css/bootstrap-responsive.min.css' 
-	'bundles/celmediaadmintheme/css/font-awesome.min.css' 
-	'bundles/celmediaadmintheme/css/ui-lightness/jquery-ui-1.10.0.custom.min.css' 
-	'bundles/celmediaadmintheme/css/base-admin-3.css' 
-	'bundles/celmediaadmintheme/css/base-admin-3-responsive.css' 
-	'bundles/celmediaadmintheme/css/pages/dashboard.css' 
-	'bundles/celmediaadmintheme/css/custom.css' 
+  	'bundles/celmediaadmintheme/css/bootstrap.min.css' 
+  	'bundles/celmediaadmintheme/css/bootstrap-responsive.min.css' 
+  	'bundles/celmediaadmintheme/css/font-awesome.min.css' 
+  	'bundles/celmediaadmintheme/css/ui-lightness/jquery-ui-1.10.0.custom.min.css' 
+  	'bundles/celmediaadmintheme/css/base-admin-3.css' 
+  	'bundles/celmediaadmintheme/css/base-admin-3-responsive.css' 
+  	'bundles/celmediaadmintheme/css/pages/dashboard.css' 
+  	'bundles/celmediaadmintheme/css/custom.css' 
+    'bundles/celmediaadmintheme/css/emergencias.css'
+  
 	filter='cssrewrite' %}
 	<link rel="stylesheet" href="{{ asset_url }}" />
 	{% endstylesheets %}
  
 {% endblock %}
 
+  <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+  <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -333,16 +337,16 @@
       
   <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
   <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
 	{% javascripts 
 	'@CelmediaAdminThemeBundle/Resources/public/js/libs/jquery-1.9.1.min.js' 
 	'@CelmediaAdminThemeBundle/Resources/public/js/libs/jquery-ui-1.10.0.custom.min.js' 
 	'@CelmediaAdminThemeBundle/Resources/public/js/libs/bootstrap.min.js' 
-
-
-	%}
-	<script type="text/javascript" src="{{ asset_url }}"></script>
-	{% endjavascripts %}
+  '@CelmediaAdminThemeBundle/Resources/public/js/emergencias.js'
+  %}
+  <script type="text/javascript" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
   
   {% endblock %}
 
