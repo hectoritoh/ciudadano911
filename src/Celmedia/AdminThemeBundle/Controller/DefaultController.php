@@ -16,6 +16,12 @@ class DefaultController extends Controller
 		return $this->render('CelmediaAdminThemeBundle:Pages:index.html.twig');
 	}
 
+	public function emergenciasAction()
+	{
+		return $this->render('CelmediaAdminThemeBundle:Pages:emergencias.html.twig');
+	}
+
+
 
 	public function participantesAction()
 	{

@@ -1,6 +1,40 @@
 celmedia_admin_theme_homepage:
-    path:     /manager
+    path:     /
     defaults: { _controller: CelmediaAdminThemeBundle:Default:index }
+
+
+
+# trabajar con este route
+
+app_admin_theme_mapa:
+    path:     /emergencias
+    defaults: { _controller: CelmediaAdminThemeBundle:Default:emergencias }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
