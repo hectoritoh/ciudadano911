@@ -8,7 +8,7 @@ celmedia_admin_theme_homepage:
 
 app_admin_theme_mapa:
     path:     /emergencias
-    defaults: { _controller: CelmediaAdminThemeBundle:Default:emergencias }
+    defaults: { _controller: CelmediaAdminThemeBundle:Emergencias:emergencias }
 
 
 
