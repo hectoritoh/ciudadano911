@@ -5,14 +5,20 @@ services:
 #    app_core.example:
 #        class: %app_core.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]
-    # app_core.admin.telefono:
-    #     class: App\CoreBundle\Admin\TelefonoAdmin
-    #     arguments: [~, App\CoreBundle\Entity\Telefono, SonataAdminBundle:CRUD]
-    #     tags:
-    #         - {name: sonata.admin, manager_type: orm, group: admin, label: Telefono}
+    app_core.admin.telefono:
+        class: App\CoreBundle\Admin\TelefonoAdmin
+        arguments: [~, App\CoreBundle\Entity\Telefono, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Telefono}
 
     app_core.admin.directorio:
         class: App\CoreBundle\Admin\DirectorioAdmin
         arguments: [~, App\CoreBundle\Entity\Directorio, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Directorio}
+
+    app_core.admin.emergencia:
+        class: App\CoreBundle\Admin\EmergenciaAdmin
+        arguments: [~, App\CoreBundle\Entity\Emergencia, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Emergencia}

@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class DirectorioAdmin extends Admin
+class EmergenciaAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,14 +17,10 @@ class DirectorioAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('nombre')
-            ->add('tipo')
+            ->add('tipo_emergencia')
             ->add('descripcion')
-            ->add('infoadicional')
-            ->add('direccion')
             ->add('latitud')
             ->add('longuitud')
-            ->add('estado')
             ->add('created')
             ->add('updated')
         ;
@@ -37,16 +33,12 @@ class DirectorioAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('nombre')
-            ->add('tipo')
-            ->add('descripcion')
-            ->add('infoadicional')
-            ->add('direccion')
+            ->add('tipo_emergencia')
+            // ->add('descripcion')
             ->add('latitud')
             ->add('longuitud')
-            ->add('estado')
             ->add('created')
-            ->add('updated')
+            // ->add('updated')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -63,28 +55,15 @@ class DirectorioAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
 
-
-
         $tipos_emergencias = array( 'salud' => 'Salud'  , 'seguridad' => 'Seguridad' , 'cte' => "comision transito" , 'bomberos' => "Bomberos" ); 
-
-
 
         $formMapper
             // ->add('id')
-            ->add('nombre')
-            ->add('tipo' , 'choice' , array("choices" => $tipos_emergencias ) )
+            ->add('tipo_emergencia'  , 'choice', array(  'choices' =>  $tipos_emergencias ))
+            ->add('usuario', 'sonata_type_model', array(), array(     ))
             ->add('descripcion')
-            ->add('infoadicional')
-            // ->add('telefonos')
-                        ->add('telefonos', 'sonata_type_collection', array(), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable'  => 'position'
-            ))
-            ->add('direccion')
             ->add('latitud')
             ->add('longuitud')
-            ->add('estado')
             // ->add('created')
             // ->add('updated')
         ;
@@ -96,17 +75,13 @@ class DirectorioAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-            ->add('id')
-            ->add('nombre')
-            ->add('tipo')
+            // ->add('id')
+            ->add('tipo_emergencia')
             ->add('descripcion')
-            ->add('infoadicional')
-            ->add('direccion')
             ->add('latitud')
             ->add('longuitud')
-            ->add('estado')
-            ->add('created')
-            ->add('updated')
+            // ->add('created')
+            // ->add('updated')
         ;
     }
 }

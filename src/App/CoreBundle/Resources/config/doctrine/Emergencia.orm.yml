@@ -1,0 +1,74 @@
+App\CoreBundle\Entity\Emergencia:
+    type: entity
+    table: emergencia
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+
+        tipo_emergencia:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+
+        descripcion:
+            type: text
+            nullable: true
+
+        latitud:
+            type: string
+            length: 100
+            nullable: true
+        longuitud:
+            type: string
+            length: 100
+            nullable: true
+
+
+        created:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: create
+        updated:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: update
+
+
+    oneToOne:
+      usuario:
+        targetEntity: Application\Sonata\UserBundle\Entity\User
+        joinColumn:
+          name: usuario_id
+          referencedColumnName: id
+
+
+
+    # manyToMany:
+    #   ciudades:
+    #     targetEntity: Ciudad
+    #     joinTable:
+    #       name: campana_ciudad
+    #       joinColumns:
+    #         campana_id:
+    #           referencedColumnName: id
+    #       inverseJoinColumns:
+    #         ciudad_id:
+    #           referencedColumnName: id
+    # oneToOne:
+    #   mensaje:
+    #     targetEntity: Mensaje
+    #     cascade: ["persist"]
+    #     joinColumn:
+    #       name: mensaje_id
+    #       referencedColumnName: id
+
+
+    lifecycleCallbacks: {  }
