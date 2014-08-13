@@ -8,7 +8,23 @@ celmedia_admin_theme_homepage:
 
 app_admin_theme_mapa:
     path:     /emergencias
+<<<<<<< HEAD
     defaults: { _controller: CelmediaAdminThemeBundle:Emergencia:emergencias }
+=======
+    defaults: { _controller: CelmediaAdminThemeBundle:Emergencias:emergencias }
+
+
+remote_get_directorios:
+    path:     /server/get/directorios
+    defaults: { _controller: CelmediaAdminThemeBundle:Servicios:getDirectorios }
+
+
+
+
+
+
+
+>>>>>>> c02398d86cbf5a9b76ac0cea31de8f7df0a6f613
 
 get_emergencias:
     path:      /getEmergencias
