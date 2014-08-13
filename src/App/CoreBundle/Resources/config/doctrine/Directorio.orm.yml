@@ -1,0 +1,89 @@
+App\CoreBundle\Entity\Directorio:
+    type: entity
+    table: directorio
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        tipo:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+
+        descripcion:
+            type: text
+            nullable: true
+        infoadicional:
+            type: text
+            nullable: true
+        direccion:
+            type: text
+            nullable: true 
+        latitud:
+            type: string
+            length: 100
+            nullable: false
+        longuitud:
+            type: string
+            length: 100
+            nullable: false
+        estado: 
+            type: boolean
+            nullable: false
+
+        created:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: create
+        updated:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: update
+
+    manyToMany:
+      telefonos:
+        targetEntity: Telefono
+        cascade: ["persist"]
+        joinTable:
+          name: directorio_telefono
+          joinColumns:
+            directorio_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            telefono_id:
+              referencedColumnName: id
+              unique: true
+
+    # manyToMany:
+    #   ciudades:
+    #     targetEntity: Ciudad
+    #     joinTable:
+    #       name: campana_ciudad
+    #       joinColumns:
+    #         campana_id:
+    #           referencedColumnName: id
+    #       inverseJoinColumns:
+    #         ciudad_id:
+    #           referencedColumnName: id
+    # oneToOne:
+    #   mensaje:
+    #     targetEntity: Mensaje
+    #     cascade: ["persist"]
+    #     joinColumn:
+    #       name: mensaje_id
+    #       referencedColumnName: id
+
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,36 @@
+App\CoreBundle\Entity\Telefono:
+    type: entity
+    table: telefono
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        numero:
+            type: string
+            length: 100
+            fixed: false
+            nullable: false
+        operadora:
+            type: string
+            nullable: true 
+        estado: 
+            type: boolean
+            nullable: false
+
+        created:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: create
+        updated:
+          type: datetime
+          gedmo:
+            timestampable:
+              on: update
+
+ 
+    lifecycleCallbacks: {  }

@@ -135,10 +135,6 @@ be_simple_soap:
             resource:      "@CelmediaCrmCanjeadorCodigosBundle/Controller/DefaultController.php"
             resource_type: annotation
 
-
-
- 
-
 sonata_user:
     security_acl: true
     manager_type: orm # can be orm or mongodb
